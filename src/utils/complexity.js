@@ -1,4 +1,4 @@
-const API_URL = "https://leetboost.onrender.com/analyze-complexity";
+const API_URL = "https://zencode-mawz.onrender.com/analyze-complexity";
 
 export async function analyzeComplexity(problemSlug, code) {
 
