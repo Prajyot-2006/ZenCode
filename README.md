@@ -1,41 +1,36 @@
-# ⚡ LeetBoost
+# ⚡ ZenCode
 
-> A Chrome extension that enhances LeetCode with themed submission
-> celebrations, submission analytics, and AI-powered Time & Space
-> Complexity analysis.
+> A Chrome extension that enhances LeetCode with themed submission celebrations, submission analytics, and AI-powered Time & Space Complexity analysis.
 
 ## 🚀 Overview
 
-**LeetBoost** is a Manifest V3 Chrome extension built with React and
-Vite.
+**ZenCode** is a Manifest V3 Chrome extension built with React and Vite.
 
 It provides:
 
--   🎮 GTA San Andreas and Minecraft celebration themes
--   🔊 Passed/failed submission sounds
--   📊 Submission analytics
--   🤖 Gemini-powered Time & Space Complexity analysis
--   💾 Per-problem complexity caching
--   ⚡ Network-based LeetCode submission detection
+- 🎮 GTA San Andreas and Minecraft celebration themes
+- 🔊 Passed/failed submission sounds
+- 📊 Submission analytics
+- 🤖 Gemini-powered Time & Space Complexity analysis
+- 💾 Per-problem complexity caching
+- ⚡ Network-based LeetCode submission detection
 
-The project uses a React/Vite Chrome extension frontend and a
-Node.js/Express backend for Gemini analysis.
+The project uses a React/Vite Chrome extension frontend and a Node.js/Express backend for Gemini analysis.
 
 ## ✨ Features
 
 ### 🎮 Submission Celebrations
 
-LeetBoost detects LeetCode submission results and displays a themed
-celebration.
+ZenCode detects LeetCode submission results and displays a themed celebration.
 
 Supported themes:
 
--   GTA San Andreas
--   Minecraft
+- GTA San Andreas
+- Minecraft
 
 Each theme contains:
 
-``` text
+```text
 passed.png
 passed.mp3
 failed.png
@@ -44,53 +39,47 @@ failed.mp3
 
 The celebration supports:
 
--   Passed/failed image
--   Sound effects
--   Attempt information
--   Animated popup
--   Sound ON/OFF
--   Celebration ON/OFF
--   Theme selection
+- Passed/failed images
+- Sound effects
+- Attempt information
+- Animated popups
+- Sound ON/OFF
+- Celebration ON/OFF
+- Theme selection
 
 ### 📊 Submission Analytics
 
-LeetBoost tracks:
+ZenCode tracks:
 
--   Problems attempted
--   Accepted submissions
--   Failed submissions
--   Attempts for a problem
--   Total solving time
--   Current streak
--   Paste events
--   Bulk paste events
--   Tab switches
+- Problems attempted
+- Accepted submissions
+- Failed submissions
+- Attempts for a problem
+- Total solving time
+- Current streak
+- Paste events
+- Bulk paste events
+- Tab switches
 
 ### 🤖 AI Complexity Analyzer
 
-LeetBoost uses the Gemini API to analyze submitted LeetCode code.
+ZenCode uses the Gemini API to analyze submitted LeetCode code.
 
 It returns:
 
-``` text
-Time Complexity
-Space Complexity
+```text
+🤖 Time Complexity: O(N)
+💾 Space Complexity: O(N)
 ```
 
-Example:
+The backend keeps the Gemini API key private through an environment variable.
 
-``` text
-🤖 Time Complexity : O(N)
-💾 Space Complexity : O(N)
-```
+**Analysis flow:**
 
-The backend keeps the Gemini API key private through an environment
-variable.
-
-``` text
+```text
 Chrome Extension
        ↓
-LeetBoost Backend
+ZenCode Backend
        ↓
 Gemini API
        ↓
@@ -101,22 +90,21 @@ Chrome Extension
 
 ### 💾 Complexity Caching
 
-A successful complexity analysis is saved per LeetCode problem slug
-using:
+A successful complexity analysis is saved per LeetCode problem slug using:
 
-``` text
+```text
 chrome.storage.local
 ```
 
 For example:
 
-``` text
+```text
 two-sum
 ```
 
-First successful analysis:
+**First successful analysis:**
 
-``` text
+```text
 LeetCode
    ↓
 Backend
@@ -126,35 +114,30 @@ Gemini
 Save result
 ```
 
-Later submissions of the same problem:
+**Later submissions of the same problem:**
 
-``` text
+```text
 LeetCode
    ↓
 Saved complexity result
 ```
 
-No new backend/Gemini analysis is needed after a successful result has
-been cached.
+No new backend/Gemini analysis is needed after a successful result has been cached.
 
-If an analysis request fails, no result is cached, allowing a later
-retry.
+If an analysis request fails, no result is cached, allowing a later retry.
 
 ## 🧠 Submission Detection
 
-LeetBoost intercepts LeetCode's submission request instead of relying
-only on visible page text.
+ZenCode intercepts LeetCode's submission request instead of relying only on visible page text.
 
-It obtains the submission ID and retrieves the submitted code through
-LeetCode's GraphQL submission details endpoint.
+It obtains the submission ID and retrieves the submitted code through LeetCode's GraphQL submission details endpoint.
 
-The extension uses the submission status to distinguish accepted and
-failed submissions.
+The extension uses the submission status to distinguish accepted and failed submissions.
 
 ## 🏗️ Project Structure
 
-``` text
-LeetBoost/
+```text
+ZenCode/
 ├── public/
 │   ├── assets/
 │   │   ├── gta/
@@ -205,43 +188,47 @@ LeetBoost/
 
 ### Extension
 
--   React
--   Vite
--   JavaScript
--   Tailwind CSS
--   Chrome Extension Manifest V3
--   Chrome Storage API
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- Chrome Extension Manifest V3
+- Chrome Storage API
 
 ### Backend
 
--   Node.js
--   Express.js
--   CORS
--   dotenv
--   Google Gemini API
+- Node.js
+- Express.js
+- CORS
+- dotenv
+- Google Gemini API
 
 ### Deployment
 
--   Render for the backend
+- Render for the backend
 
 ## ⚙️ Local Setup
 
-### 1. Clone
+### 1. Clone the repository
 
-``` bash
-git clone https://github.com/Prajyot-2006/LeetBoost.git
-cd LeetBoost
+If you rename the GitHub repository to `ZenCode`, use:
+
+```bash
+git clone https://github.com/Prajyot-2006/ZenCode.git
+cd ZenCode
 ```
+
+**Note:** Update this URL only after renaming the repository on GitHub. Until then, continue using your existing repository URL.
 
 ### 2. Install frontend dependencies
 
-``` bash
+```bash
 npm install
 ```
 
 ### 3. Install backend dependencies
 
-``` bash
+```bash
 cd server
 npm install
 ```
@@ -250,13 +237,13 @@ npm install
 
 Create:
 
-``` text
+```text
 server/.env
 ```
 
 Add:
 
-``` env
+```env
 GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
@@ -266,13 +253,13 @@ Never commit the API key.
 
 From the `server` directory:
 
-``` bash
+```bash
 npm start
 ```
 
 The backend exposes:
 
-``` text
+```text
 POST /analyze-complexity
 ```
 
@@ -280,58 +267,57 @@ POST /analyze-complexity
 
 From the project root:
 
-``` bash
+```bash
 npm run build
 ```
 
 The production extension is generated in:
 
-``` text
+```text
 dist/
 ```
 
 ## 🌐 Load in Chrome
 
-1.  Open `chrome://extensions`
-2.  Enable **Developer mode**
-3.  Click **Load unpacked**
-4.  Select the project's `dist/` folder
-5.  Open LeetCode
-6.  Submit a problem
+1. Open `chrome://extensions`.
+2. Enable **Developer mode**.
+3. Click **Load unpacked**.
+4. Select the project's `dist/` folder.
+5. Open LeetCode.
+6. Submit a problem.
 
 ## 🔐 Security
 
-The Gemini API key is kept on the backend and is not placed inside the
-extension.
+The Gemini API key is kept on the backend and is not placed inside the extension.
 
-``` text
-LeetBoost
-    │
-    │ submitted code
-    ▼
+```text
+ZenCode
+   │
+   │ Submitted code
+   ▼
 Backend
-    │
-    │ private API key
-    ▼
+   │
+   │ Private API key
+   ▼
 Gemini
 ```
 
 The API key should remain in:
 
-``` text
+```text
 server/.env
 ```
 
-and should never be committed to GitHub.
+It should never be committed to GitHub.
 
 ## 🔄 Submission Flow
 
-``` text
+```text
 User submits solution
         ↓
 LeetCode /check/ request
         ↓
-LeetBoost intercepts result
+ZenCode intercepts result
         ↓
 Get submission ID
         ↓
@@ -339,46 +325,45 @@ Fetch submitted code
         ↓
 Detect result
         ↓
-┌───────┴────────┐
-↓                ↓
-Celebration   Complexity
-                 ↓
-            Check cache
-                 ↓
-        ┌────────┴────────┐
-        ↓                 ↓
-     Cached          Not cached
-        ↓                 ↓
-    Show result     Backend → Gemini
-                         ↓
-                    Save result
+┌───────────────┴───────────────┐
+↓                               ↓
+Celebration                  Complexity
+                                ↓
+                            Check cache
+                                ↓
+                    ┌───────────┴───────────┐
+                    ↓                       ↓
+                 Cached                Not cached
+                    ↓                       ↓
+               Show result          Backend → Gemini
+                                            ↓
+                                       Save result
 ```
 
 ## 📌 AI Analysis Rules
 
 The backend asks Gemini to return JSON in this format:
 
-``` json
+```json
 {
   "timeComplexity": "O(N)",
   "spaceComplexity": "O(N)"
 }
 ```
 
-The analyzer reports **total space complexity**, including output data
-structures.
+The analyzer reports **total space complexity**, including output data structures.
 
 ## 🎨 Themes
 
 ### GTA San Andreas
 
-``` text
+```text
 public/assets/gta/
 ```
 
 ### Minecraft
 
-``` text
+```text
 public/assets/minecraft/
 ```
 
@@ -388,44 +373,41 @@ Each theme contains passed and failed images and audio.
 
 After making changes:
 
-``` bash
+```bash
 npm run build
 ```
 
 Then reload the extension from:
 
-``` text
+```text
 chrome://extensions
 ```
 
 ## ⚠️ Notes
 
--   LeetBoost is designed for the LeetCode website.
--   LeetCode internal API/page changes may require updates.
--   Gemini availability and rate limits depend on the configured Google
-    AI Studio/Gemini account and model.
--   Never expose the Gemini API key publicly.
+- ZenCode is designed for the LeetCode website.
+- LeetCode internal API or page changes may require updates.
+- Gemini availability and rate limits depend on the configured Google AI Studio/Gemini account and model.
+- Never expose the Gemini API key publicly.
 
 ## 🎯 Future Improvements
 
--   More celebration themes
--   More detailed analytics
--   Additional AI analysis features
--   Further animation synchronization improvements
--   More customization options
--   Chrome Web Store release
--   Additional coding-platform support
+- More celebration themes
+- More detailed analytics
+- Additional AI analysis features
+- Further animation synchronization improvements
+- More customization options
+- Chrome Web Store release
+- Additional coding-platform support
 
 ## 👨‍💻 Author
 
 **Prajyot**
 
-Built as a personal project to make LeetCode practice more interactive
-while learning Chrome Extensions, React, backend development, APIs, and
-AI integration.
+ZenCode is a personal project built to make LeetCode practice more interactive while exploring Chrome Extensions, React, backend development, APIs, and AI integration.
 
-------------------------------------------------------------------------
+---
 
-## ⭐ LeetBoost
+## ⭐ ZenCode
 
-**Solve. Submit. Get feedback. Keep improving.**
+**Solve. Submit. Understand. Improve.**
